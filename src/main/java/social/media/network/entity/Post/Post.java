@@ -17,6 +17,7 @@ public class Post {
 
     private String content;
 
+    @Column(updatable = false)
     private Date createdAt;
 
     private Date updateAt;

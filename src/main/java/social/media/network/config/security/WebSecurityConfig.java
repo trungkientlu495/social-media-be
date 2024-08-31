@@ -47,6 +47,7 @@ public class WebSecurityConfig {
                                 .requestMatchers("/api/v1/profile/**").hasAuthority("USER")
                                 .requestMatchers("/api/v1/profile/update/**").hasAuthority("USER")
                                 .requestMatchers("/api/v1/friend/**").hasAuthority("USER")
+                                .requestMatchers("/api/v1/post/**").hasAuthority("USER")
                                 .anyRequest().permitAll()
                 )
                 .httpBasic(Customizer.withDefaults())

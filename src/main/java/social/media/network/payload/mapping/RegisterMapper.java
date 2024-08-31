@@ -5,7 +5,6 @@ import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
 import social.media.network.entity.User.User;
 import social.media.network.payload.dto.request.RegisterRequest;
-import social.media.network.payload.dto.response.FriendResponse;
 
 @Mapper
 public interface RegisterMapper {

@@ -3,9 +3,7 @@ package social.media.network.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import social.media.network.payload.ResponseHandler;
 import social.media.network.payload.dto.request.PostRequest;
 import social.media.network.services.Impl.PostServicesImpl;
@@ -16,8 +14,18 @@ import social.media.network.services.Impl.PostServicesImpl;
 public class PostController {
     private final PostServicesImpl postServices;
     @PostMapping("/create")
-    public ResponseEntity<Object> createPost(PostRequest postRequest) {
+    public ResponseEntity<Object> createPost(@RequestBody PostRequest postRequest) {
         return ResponseHandler.generateResponse(ResponseHandler.MESSAGE_SUCCESS, HttpStatus.OK,postServices.createPost(postRequest));
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<Object> updatePost(@RequestBody PostRequest postRequest) {
+        return ResponseHandler.generateResponse(ResponseHandler.MESSAGE_SUCCESS, HttpStatus.OK,postServices.updatePost(postRequest));
+    }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<Object> deletePost(@RequestBody PostRequest postRequest) {
+        return ResponseHandler.generateResponse(ResponseHandler.MESSAGE_SUCCESS, HttpStatus.OK,postServices.deletePost(postRequest));
     }
 
 }
