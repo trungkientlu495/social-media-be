@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import social.media.network.entity.FriendShip.FriendShip;
 import social.media.network.entity.Post.Post;
+import social.media.network.entity.Reaction.ReactionPost;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -62,4 +63,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Post> posts;
 
+    @OneToMany(mappedBy = "user")
+    private List<ReactionPost> reactionPosts;
 }

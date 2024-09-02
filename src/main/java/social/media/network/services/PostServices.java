@@ -11,4 +11,6 @@ public interface PostServices {
     MessageResponse updatePost(PostRequest postRequest);
 
     MessageResponse deletePost(PostRequest postRequest);
+
+    MessageResponse suggestPost(PostRequest postRequest);
 }

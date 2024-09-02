@@ -25,21 +25,24 @@ public class PostServicesImpl implements PostServices {
 
     @Override
     public PostResponse createPost(PostRequest postRequest) {
-        log.info("mnpq"+postRequest.getTitle());
-        log.info("aaadssdddaa"+postRequest.getPostStatus());
         User user = authServices.getAuth();
         Post post = PostMapper.INSTANCE.toPost(postRequest);
         post.setCreatedAt(new Date());
         post.setUser(user);
-        if(postRequest.getPostStatus()==null) throw new CustormException("Post Status null");
-        if(postRequest.getPostStatus().equals("PUBLIC")) {
-            post.setEPostStatus(EPostStatus.PUBLIC);
-        }else if(postRequest.getPostStatus().equals("FRIEND")) {
-            post.setEPostStatus(EPostStatus.FRIEND);
-        }else if(postRequest.getPostStatus().equals("PRIVATE")) {
-            post.setEPostStatus(EPostStatus.PRIVATE);
-        }else {
-            throw new CustormException("Input Post Status is not valid");
+        switch (postRequest.getPostStatus()) {
+            case null:
+                throw new CustormException("Post Status null");
+            case "PUBLIC":
+                post.setEPostStatus(EPostStatus.PUBLIC);
+                break;
+            case "FRIEND":
+                post.setEPostStatus(EPostStatus.FRIEND);
+                break;
+            case "PRIVATE":
+                post.setEPostStatus(EPostStatus.PRIVATE);
+                break;
+            default:
+                throw new CustormException("Input Post Status is not valid");
         }
         postRepo.save(post);
         PostResponse postResponse = PostMapper.INSTANCE.toPostResponse(post);
@@ -79,5 +82,10 @@ public class PostServicesImpl implements PostServices {
         }
         postRepo.delete(post);
         return new MessageResponse("Delete Post Successfully");
+    }
+
+    @Override
+    public MessageResponse suggestPost(PostRequest postRequest) {
+        return null;
     }
 }

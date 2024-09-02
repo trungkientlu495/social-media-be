@@ -28,4 +28,9 @@ public class PostController {
         return ResponseHandler.generateResponse(ResponseHandler.MESSAGE_SUCCESS, HttpStatus.OK,postServices.deletePost(postRequest));
     }
 
+    @GetMapping("/suggest")
+    public ResponseEntity<Object> suggestPosts(@RequestBody PostRequest postRequest) {
+        return ResponseHandler.generateResponse(ResponseHandler.MESSAGE_SUCCESS, HttpStatus.OK,postServices.suggestPost(postRequest));
+    }
+
 }
