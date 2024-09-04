@@ -2,6 +2,7 @@ package social.media.network.entity.User;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import social.media.network.entity.Comment.Comment;
 import social.media.network.entity.FriendShip.FriendShip;
 import social.media.network.entity.Post.Post;
 import social.media.network.entity.Reaction.ReactionPost;
@@ -65,4 +66,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<ReactionPost> reactionPosts;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 }
