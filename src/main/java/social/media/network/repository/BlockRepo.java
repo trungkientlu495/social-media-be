@@ -10,5 +10,4 @@ import java.util.List;
 public interface BlockRepo extends JpaRepository<Block, Integer> {
     @Query("SELECT u FROM Block u WHERE u.blockedUser.userId = :idBlockUser")
     List<Block> findByBlockedUser(@Param("idBlockUser") Long idBlockUser);
-
 }

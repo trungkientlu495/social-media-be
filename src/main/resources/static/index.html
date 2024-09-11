@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="comment-section">
+    <div id="comment-parent">
+        <div id="comment">
+            <img src="user-avatar.jpg" alt="Avatar" class="avatar">
+            <div class="comment-content">
+                <span class="username">John Doe</span>
+                <p class="comment-text">This is a sample comment by the user.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Comment form -->
+    <form id="join-group">
+        <div class="add-comment">
+            <img src="current-user-avatar.jpg" alt="Avatar" class="avatar">
+            <textarea id="commentInput" placeholder="Add a comment..."></textarea>
+            <button type="submit">Post</button>
+        </div>
+    </form>
+
+</div>
+
+<style>
+    #comment-section {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 200px;
+    }
+
+    #comment {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .comment-content {
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+    }
+
+    .username {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    .comment-text {
+        margin: 0;
+    }
+
+    .add-comment {
+        display: flex;
+        align-items: flex-start;
+    }
+
+    .add-comment textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 10px;
+        margin-right: 10px;
+    }
+
+    .add-comment button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .add-comment button:hover {
+        background-color: #0056b3;
+    }
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
